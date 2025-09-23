@@ -1,0 +1,67 @@
+---
+import logo from '../assets/shared/logo.svg'
+const currentPage = Astro.url.pathname;
+---
+
+<header class="flex items-center fixed w-full m-5">
+  <div>
+    <img src={logo.src} alt="logo">
+  </div>
+  <nav class="flex flex-grow justify-end basis-0 mr-5">
+    <ul class=" [&>li]:px-15">
+      <li>
+        <a class={currentPage === '/' ? 'active' : ''} href="/"><span>00</span> Home</a>
+      </li>
+      <li>
+        <a class={currentPage === '/destination' ? 'active' : ''} href="/destination"><span>01</span> Destination</a>
+      </li>
+      <li>
+        <a class={currentPage === '/crew' ? 'active' : ''} href="/crew"><span>02</span> Crew</a>
+      </li>
+      <li>
+        <a class={currentPage === '/technology' ? 'active' : ''} href="/technology"><span>03</span> Technology</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  ul {
+    display: flex;
+    justify-content: flex-end;
+    background-color: rgba(255, 255, 255, 0);
+    backdrop-filter: blur(250px);
+    border: 1px solid white;
+    border-radius: 15px;
+    padding: 15px;
+    list-style: none;
+    display: flex;
+  }
+
+  nav li {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: white;
+    padding-bottom: 8px;
+    display: inline-block;
+  }
+
+  nav a span {
+    font-weight: bold;
+    margin-right: 8px;
+  }
+
+  nav a:hover {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  }
+
+  nav a.active {
+    border-bottom: 2px solid white;
+  }
+</style>

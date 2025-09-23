@@ -1,11 +1,86 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import homeBg from '../assets/home/background-home-desktop.jpg';  
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const bgImage = homeBg.src; 
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Home" bgImage={bgImage}>
+  <section class="home">
+    <div class="content">
+      <h2 class="subtitle">So, you want to travel to</h2>
+      <h1>Space</h1>
+      <p>
+        Let’s face it; if you want to go to space, you might as well genuinely go
+        to outer space and not hover kind of on the edge of it. Well sit back,
+        and relax because we’ll give you a truly out of this world experience!
+      </p>
+    </div>
+    <button class="explore">Explore</button>
+  </section>
 </Layout>
+
+<style>
+  .home {
+    min-height: 100vh;  
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 0 10%; 
+    color: white;
+  }
+
+  .content {
+    margin-top: 8rem;
+    max-width: 45%;  
+  }
+
+  .subtitle {
+    font-size: 1.75rem;  * 28px */
+    letter-spacing: 4.72px;
+    color: var(--text-light);  
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-family: var(--font-heading);  
+    font-size: 9.375rem;  
+    margin: 0.5rem 0 1rem;
+    text-transform: uppercase;
+  }
+
+  p {
+    font-size: 1.125rem;  
+    line-height: 1.78;
+    color: var(--text-light);
+    max-width: 90%;  
+  }
+
+  .explore {
+    width: 274px;
+    height: 274px;
+    border-radius: 50%;
+    background: white;
+    color: black;
+    font-family: var(--font-heading);
+    font-size: 2rem;  
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .explore:hover::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 374px;  
+    height: 374px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    z-index: -1;
+  }
+</style>

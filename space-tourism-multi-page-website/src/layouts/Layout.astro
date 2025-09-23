@@ -1,22 +1,33 @@
+---
+import Header from '../components/Header.astro';
+const { title, bgImage, pageUrl } = Astro.props;
+import '../styles/global.css';
+---
+
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} - Space Tourism</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow&family=Barlow+Condensed:wght@400;700&family=Bellefair&display=swap" rel="stylesheet" />
+  </head>
+  <body style={bgImage ? `background-image: url(${bgImage}); background-size: cover; background-position: center; background-attachment: fixed;` : ''}>
+    <Header />
+    <main>
+      <slot />
+    </main>
+  </body>
 </html>
 
 <style>
-	html,
+  html,
 	body {
 		margin: 0;
 		width: 100%;
 		height: 100%;
+    font-family: 'Barlow Condensed', sans-serif;
 	}
 </style>
