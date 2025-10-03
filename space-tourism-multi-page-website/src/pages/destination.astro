@@ -1,0 +1,167 @@
+---
+import Layout from '../layouts/Layout.astro';
+import destBg from '../assets/destination/background-destination-desktop.jpg';
+import moonPng from '../assets/destination/image-moon.png';
+import moonWebp from '../assets/destination/image-moon.webp';
+import marsPng from '../assets/destination/image-mars.png';
+import marsWebp from '../assets/destination/image-mars.webp';
+import europaPng from '../assets/destination/image-europa.png';
+import europaWebp from '../assets/destination/image-europa.webp';
+import titanPng from '../assets/destination/image-titan.png';
+import titanWebp from '../assets/destination/image-titan.webp';
+
+const bgImage = destBg.src; 
+---
+
+<Layout title="Destination" bgImage={bgImage}>
+  <section class="destination min-h-screen max-h-[calc(100vh - 80px)] px-10 pt-20 overflow-hidden">
+    <h2 class="section-title text-2xl uppercase tracking-widest mb-15 mt-20 ml-52">
+      <span class="font-bold mr-2 ml-2">01</span> Pick your destination
+    </h2>
+    
+    <div class="flex items-center justify-between h-full">
+
+      <div class="w-1/2 flex justify-center items-center">
+        <picture id="img-moon" class="dest-image block">
+          <source srcset={moonWebp.src} type="image/webp" />
+          <img src={moonPng.src} alt="Moon" class="max-w-[445px] max-h-[60vh] object-contain" />
+        </picture>
+        <picture id="img-mars" class="dest-image hidden">
+          <source srcset={marsWebp.src} type="image/webp" />
+          <img src={marsPng.src} alt="Mars" class="max-w-[445px] max-h-[60vh] object-contain" />
+        </picture>
+        <picture id="img-europa" class="dest-image hidden">
+          <source srcset={europaWebp.src} type="image/webp" />
+          <img src={europaPng.src} alt="Europa" class="max-w-[445px] max-h-[60vh] object-contain" />
+        </picture>
+        <picture id="img-titan" class="dest-image hidden">
+          <source srcset={titanWebp.src} type="image/webp" />
+          <img src={titanPng.src} alt="Titan" class="max-w-[445px] max-h-[60vh] object-contain" />
+        </picture>
+      </div>
+      
+      <div class="w-1/2">
+        <div class="tabs flex mb-6">
+          <input type="radio" id="tab-moon" name="dest-tabs" checked class="hidden" />
+          <label for="tab-moon" class="tab-label mr-6 cursor-pointer uppercase text-light-blue text-sm tracking-widest">Moon</label>
+          
+          <input type="radio" id="tab-mars" name="dest-tabs" class="hidden" />
+          <label for="tab-mars" class="tab-label mr-6 cursor-pointer uppercase text-light-blue text-sm tracking-widest">Mars</label>
+          
+          <input type="radio" id="tab-europa" name="dest-tabs" class="hidden" />
+          <label for="tab-europa" class="tab-label mr-6 cursor-pointer uppercase text-light-blue text-sm tracking-widest">Europa</label>
+          
+          <input type="radio" id="tab-titan" name="dest-tabs" class="hidden" />
+          <label for="tab-titan" class="tab-label cursor-pointer uppercase text-light-blue text-sm tracking-widest">Titan</label>
+        </div>
+        
+        <div id="content-moon" class="tab-content block">
+          <h3 class="text-6xl uppercase font-heading text-white mb-4 font-bold">Moon</h3>
+          <p class="text-base text-light-blue leading-relaxed mb-8">
+            See our planet as you’ve never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you’re there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.
+          </p>
+          <div class="flex border-t border-gray-600 pt-6">
+            <div class="w-1/2">
+              <span class="text-sm uppercase text-light-blue tracking-widest block">Avg. distance</span>
+              <span class="text-2xl uppercase font-heading text-white">384,400 km</span>
+            </div>
+            <div class="w-1/2">
+              <span class="text-sm uppercase text-light-blue tracking-widest block">Est. travel time</span>
+              <span class="text-2xl uppercase font-heading text-white">3 days</span>
+            </div>
+          </div>
+        </div>
+        
+        <div id="content-mars" class="tab-content hidden">
+          <h3 class="text-6xl uppercase font-heading text-white mb-4">Mars</h3>
+          <p class="text-base text-light-blue leading-relaxed mb-8">
+            Don’t forget to pack your hiking boots. You’ll need them to tackle Olympus Mons, the tallest planetary mountain in our solar system. It’s two and a half times the size of Everest!
+          </p>
+          <div class="flex border-t border-gray-600 pt-6">
+            <div class="w-1/2">
+              <span class="text-sm uppercase text-light-blue tracking-widest block">Avg. distance</span>
+              <span class="text-2xl uppercase font-heading text-white">225 mil. km</span>
+            </div>
+            <div class="w-1/2">
+              <span class="text-sm uppercase text-light-blue tracking-widest block">Est. travel time</span>
+              <span class="text-2xl uppercase font-heading text-white">9 months</span>
+            </div>
+          </div>
+        </div>
+        
+        <div id="content-europa" class="tab-content hidden">
+          <h3 class="text-6xl uppercase font-heading text-white mb-4">Europa</h3>
+          <p class="text-base text-light-blue leading-relaxed mb-8">
+            The smallest of the four Galilean moons orbiting Jupiter, Europa is a winter lover’s dream. With an icy surface, it’s perfect for a bit of ice skating, curling, hockey, or simple relaxation in your snug wintery cabin.
+          </p>
+          <div class="flex border-t border-gray-600 pt-6">
+            <div class="w-1/2">
+              <span class="text-sm uppercase text-light-blue tracking-widest block">Avg. distance</span>
+              <span class="text-2xl uppercase font-heading text-white">628 mil. km</span>
+            </div>
+            <div class="w-1/2">
+              <span class="text-sm uppercase text-light-blue tracking-widest block">Est. travel time</span>
+              <span class="text-2xl uppercase font-heading text-white">3 years</span>
+            </div>
+          </div>
+        </div>
+        
+        <div id="content-titan" class="tab-content hidden">
+          <h3 class="text-6xl uppercase font-heading text-white mb-4">Titan</h3>
+          <p class="text-base text-light-blue leading-relaxed mb-8">
+            The only moon known to have a dense atmosphere other than Earth, Titan is a home away from home (just a few hundred degrees colder!). As a bonus, you get striking views of the Rings of Saturn.
+          </p>
+          <div class="flex border-t border-gray-600 pt-6">
+            <div class="w-1/2">
+              <span class="text-sm uppercase text-light-blue tracking-widest block">Avg. distance</span>
+              <span class="text-2xl uppercase font-heading text-white">1.6 bil. km</span>
+            </div>
+            <div class="w-1/2">
+              <span class="text-sm uppercase text-light-blue tracking-widest block">Est. travel time</span>
+              <span class="text-2xl uppercase font-heading text-white">7 years</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  document.querySelectorAll('input[name="dest-tabs"]').forEach(tab => {
+    tab.addEventListener('change', () => {
+      const selected = tab.id.replace('tab-', '');
+
+      document.querySelectorAll('.dest-image').forEach(img => img.classList.add('hidden'));
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.add('hidden'));
+
+      document.querySelector(`#img-${selected}`)!.classList.remove('hidden');
+      document.querySelector(`#content-${selected}`)!.classList.remove('hidden');
+    });
+  });
+</script>
+
+<style>
+  body{
+    color: white;
+  }
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+  }
+
+  .tab-label::after {
+    content: '';
+    display: block;
+    height: 3px;
+    background: transparent;
+    transition: background 0.3s;
+  }
+
+  .tab-label:hover::after, input:checked + .tab-label::after {
+    background: white;
+  }
+
+  .tab-label:hover::after {
+    opacity: 0.5;
+  }
+</style>
